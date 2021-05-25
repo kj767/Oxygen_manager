@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Supply extends Component {
     state = {  }
     render() { 
@@ -15,31 +16,76 @@ class Supply extends Component {
                 </div>
                 <div className="card-body">
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
-                    <table className="table">
-                      <thead className=" text-primary">
-                        <th>
-                          Oxygen-Plant
-                        </th>
-                        <th>
-                          Date
-                        </th>
-                        <th>
-                          Time
-                        </th>
-                        <th>Delivery Center</th>
-                        <th>
-
-                          Incharge
-                        </th>
-                        <th>
-                          Contact
-                        </th>
-                        
-                      </thead>
-                      <tbody >
-                        {/* {pendingtable} */}
-                      </tbody>
-                    </table>
+                    <table class="table">
+  <thead class="thead" bgcolor="#651FFF">
+    <tr>
+      <th scope="col"><font color="#FFFFFF">Oxygen-plant</font></th>
+      <th scope="col"><font color="#FFFFFF">Date</font></th>
+      <th scope="col"><font color="#FFFFFF">Time</font></th>
+      <th scope="col"><font color="#FFFFFF">Delovery-Center</font></th>
+      <th scope="col"><font color="#FFFFFF">Incharge</font></th>
+      <th scope="col"><font color="#FFFFFF">Contact</font></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chennai</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Shimla</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Chennai</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Jalandhar</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Bangalore</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Ambala</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Delhi</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Dehradun</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Baddi</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Jaipur</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Chennai</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Lucknow</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Bangalore</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Indore</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+  </tbody>
+</table>
                   </div>
                 </div>
               </div>
@@ -52,29 +98,76 @@ class Supply extends Component {
                 </div>
                 <div className="card-body">
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
-                    <table className="table">
-                      <thead className=" text-primary">
-                        <th>
-                          State
-                        </th>
-                        <th>
-                            Date
-                        </th>
-                        <th>
-                          Time
-                        </th>
-                        <th>
-                         Center
-                        </th>
-                        <th>
-                          Incharge
-                        </th>
-                        <th>Contact</th>
-                      </thead>
-                      <tbody >
-                        {/* {pendingtable} */}
-                      </tbody>
-                    </table>
+                  <table class="table">
+  <thead class="thead" bgcolor="#651FFF">
+    <tr>
+      <th scope="col"><font color="#FFFFFF">State</font></th>
+      <th scope="col"><font color="#FFFFFF">Date</font></th>
+      <th scope="col"><font color="#FFFFFF">Time</font></th>
+      <th scope="col"><font color="#FFFFFF">Center</font></th>
+      <th scope="col"><font color="#FFFFFF">Incharge</font></th>
+      <th scope="col"><font color="#FFFFFF">Contact</font></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Himachal Pradesh</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Shimla</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Punjab</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Jalandhar</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Haryana</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Ambala</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Utrakhand</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Dehradun</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Rajasthan</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Jaipur</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Uttar Pradesh</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Lucknow</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+    <tr>
+      <td>Madhya Pradesh</td>
+      <td>26-05-2021</td>
+      <td>09:30</td>
+      <td>Indore</td>
+      <td>ABCD</td>
+      <td>9736178898</td>
+    </tr>
+  </tbody>
+</table>
                   </div>
                 </div>
               </div>
