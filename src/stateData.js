@@ -6,11 +6,11 @@ class State extends Component {
     render() { 
         const percentage=60;
         return ( 
-            <div className="content" style={{"backgroundColor":"#CCD1D1"}}>
-                <div className="container-fluid">
+            <div className="content">
+                <div className="container-fluid" >
                     <div className="row">
                 <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats" style={{"backgroundColor":"#F8F9F9"}}>
+                  <div className="card card-stats">
                     <div className="card-header card-header-primary card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>New Delhi</p>
@@ -27,7 +27,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: '#76448A',
+                    stroke: 'red',
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -38,7 +38,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 	'#512E5F',
+                    fill: 	'red',
                     // Text size
                     fontSize: '20px',
                     fontWeight: 'bold',
@@ -79,7 +79,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#909497`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -90,7 +90,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#424949',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -131,7 +131,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#28B463`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -142,7 +142,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1D8348',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -183,7 +183,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#E74C3C`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -194,7 +194,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 'red',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -235,7 +235,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#F39C12`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -246,7 +246,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#E67E22',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -287,7 +287,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#2E86C1`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -298,7 +298,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1F618D',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -340,7 +340,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#ABB2B9`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -351,7 +351,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#5D6D7E',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -375,7 +375,7 @@ class State extends Component {
                 </div>
 
                 <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats" style={{"backgroundColor":"#F8F9F9"}}>
+                  <div className="card card-stats">
                     <div className="card-header card-header-primary card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>West Bengal</p>
@@ -392,7 +392,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: '#76448A',
+                    stroke: 'red',
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -403,7 +403,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 	'#512E5F',
+                    fill: 	'red',
                     // Text size
                     fontSize: '20px',
                     fontWeight: 'bold',
@@ -444,7 +444,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#909497`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -455,7 +455,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#424949',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -496,7 +496,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#28B463`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -507,7 +507,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1D8348',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -548,7 +548,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#E74C3C`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -559,7 +559,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 'red',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -600,7 +600,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#F39C12`,
+                    stroke: `red`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -611,7 +611,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#E67E22',
+                    fill: 'red',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -652,7 +652,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#2E86C1`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -663,7 +663,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1F618D',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -705,7 +705,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#ABB2B9`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -716,7 +716,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#5D6D7E',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -740,7 +740,7 @@ class State extends Component {
                 </div>
                     
                 <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats" style={{"backgroundColor":"#F8F9F9"}}>
+                  <div className="card card-stats">
                     <div className="card-header card-header-primary card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>Telangana</p>
@@ -757,7 +757,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: '#76448A',
+                    stroke: 'orange',
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -768,7 +768,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 	'#512E5F',
+                    fill: 	'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight: 'bold',
@@ -809,7 +809,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#909497`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -820,7 +820,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#424949',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -861,7 +861,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#28B463`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -872,7 +872,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1D8348',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -913,7 +913,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#E74C3C`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -924,7 +924,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 'red',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -965,7 +965,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#F39C12`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -976,7 +976,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#E67E22',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1017,7 +1017,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#2E86C1`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1028,7 +1028,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1F618D',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1070,7 +1070,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#ABB2B9`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1081,7 +1081,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#5D6D7E',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1105,7 +1105,7 @@ class State extends Component {
                 </div>
 
                 <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats" style={{"backgroundColor":"#F8F9F9"}}>
+                  <div className="card card-stats">
                     <div className="card-header card-header-primary card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>Gujarat</p>
@@ -1122,7 +1122,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: '#76448A',
+                    stroke: 'red',
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1133,7 +1133,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 	'#512E5F',
+                    fill: 	'red',
                     // Text size
                     fontSize: '20px',
                     fontWeight: 'bold',
@@ -1174,7 +1174,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#909497`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1185,7 +1185,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#424949',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1226,7 +1226,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#28B463`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1237,7 +1237,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1D8348',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1278,7 +1278,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#E74C3C`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1289,7 +1289,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 'red',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1330,7 +1330,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#F39C12`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1341,7 +1341,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#E67E22',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1382,7 +1382,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#2E86C1`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1393,7 +1393,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1F618D',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1435,7 +1435,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#ABB2B9`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1446,7 +1446,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#5D6D7E',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1470,7 +1470,7 @@ class State extends Component {
                 </div>
                 
                 <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats" style={{"backgroundColor":"#F8F9F9"}}>
+                  <div className="card card-stats">
                     <div className="card-header card-header-primary card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>Puducherry</p>
@@ -1487,7 +1487,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: '#76448A',
+                    stroke: 'red',
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1498,7 +1498,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 	'#512E5F',
+                    fill: 	'red',
                     // Text size
                     fontSize: '20px',
                     fontWeight: 'bold',
@@ -1539,7 +1539,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#909497`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1550,7 +1550,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#424949',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1591,7 +1591,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#28B463`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1602,7 +1602,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1D8348',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1643,7 +1643,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#E74C3C`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1654,7 +1654,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: 'red',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1695,7 +1695,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#F39C12`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1706,7 +1706,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#E67E22',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1747,7 +1747,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#2E86C1`,
+                    stroke: `orange`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1758,7 +1758,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#1F618D',
+                    fill: 'orange',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
@@ -1800,7 +1800,7 @@ class State extends Component {
                 styles={{
                   path: {
                     // Path color
-                    stroke: `#ABB2B9`,
+                    stroke: `green`,
                     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                     strokeLinecap: 'round',
                     // Customize transition animation
@@ -1811,7 +1811,7 @@ class State extends Component {
                   },
                   text: {
                     // Text color
-                    fill: '#5D6D7E',
+                    fill: 'green',
                     // Text size
                     fontSize: '20px',
                     fontWeight:'bold',
