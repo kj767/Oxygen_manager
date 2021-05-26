@@ -18,7 +18,11 @@ class Supply extends Component {
                 <div className="card-body">
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
                     <table class="table">
+
   <thead class="thead" bgcolor="#FFFFFF">
+
+  <thead class="thead" bgcolor="#5B0689">
+
     <tr>
       <th scope="col"><font color="#0000FF">Oxygen-plant</font></th>
       <th scope="col"><font color="#0000FF">Date</font></th>
@@ -110,6 +114,15 @@ class Supply extends Component {
       <th scope="col"><font color="#0000FF">Center</font></th>
       <th scope="col"><font color="#0000FF">Incharge</font></th>
       <th scope="col"><font color="#0000FF">Contact</font></th>
+
+  <thead class="thead" bgcolor="#5B0689">
+    <tr>
+      <th scope="col"><font color="#FFFFFF">State</font></th>
+      <th scope="col"><font color="#FFFFFF">Date</font></th>
+      <th scope="col"><font color="#FFFFFF">Time</font></th>
+      <th scope="col"><font color="#FFFFFF">Center</font></th>
+      <th scope="col"><font color="#FFFFFF">Incharge</font></th>
+      <th scope="col"><font color="#FFFFFF">Contact</font></th>
     </tr>
   </thead>
   <tbody>
