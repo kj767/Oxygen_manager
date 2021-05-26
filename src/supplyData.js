@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Supply extends Component {
     state = {  }
     render() { 
@@ -11,20 +10,22 @@ class Supply extends Component {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header card-header-primary">
-                  <h4 className="card-title ">Supply In</h4>
+                  <h4 className="card-title ">Supply In
+                  <button type="button" class="btn btn-light float-right"><font color="#0000FF">Add field</font></button>
+                  </h4>
                   <p className="card-category"></p>
                 </div>
                 <div className="card-body">
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
                     <table class="table">
-  <thead class="thead" bgcolor="#651FFF">
+  <thead class="thead" bgcolor="#FFFFFF">
     <tr>
-      <th scope="col"><font color="#FFFFFF">Oxygen-plant</font></th>
-      <th scope="col"><font color="#FFFFFF">Date</font></th>
-      <th scope="col"><font color="#FFFFFF">Time</font></th>
-      <th scope="col"><font color="#FFFFFF">Delovery-Center</font></th>
-      <th scope="col"><font color="#FFFFFF">Incharge</font></th>
-      <th scope="col"><font color="#FFFFFF">Contact</font></th>
+      <th scope="col"><font color="#0000FF">Oxygen-plant</font></th>
+      <th scope="col"><font color="#0000FF">Date</font></th>
+      <th scope="col"><font color="#0000FF">Time</font></th>
+      <th scope="col"><font color="#0000FF">Delovery-Center</font></th>
+      <th scope="col"><font color="#0000FF">Incharge</font></th>
+      <th scope="col"><font color="#0000FF">Contact</font></th>
     </tr>
   </thead>
   <tbody>
@@ -37,7 +38,7 @@ class Supply extends Component {
       <td>9736178898</td>
     </tr>
     <tr>
-      <td>Chennai</td>
+      <td class="abc">Chennai</td>
       <td>26-05-2021</td>
       <td>09:30</td>
       <td>Jalandhar</td>
@@ -93,20 +94,22 @@ class Supply extends Component {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header card-header-primary">
-                  <h4 className="card-title ">Supply Out</h4>
-                  <p className="card-category"></p>
+                  <h4 className="card-title ">
+                    Supply Out
+                    <button type="button" class="btn btn-light float-right"><font color="#0000FF">Add field</font></button>
+                    </h4>
                 </div>
                 <div className="card-body">
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
                   <table class="table">
-  <thead class="thead" bgcolor="#651FFF">
+  <thead class="thead" bgcolor="#FFFFFF">
     <tr>
-      <th scope="col"><font color="#FFFFFF">State</font></th>
-      <th scope="col"><font color="#FFFFFF">Date</font></th>
-      <th scope="col"><font color="#FFFFFF">Time</font></th>
-      <th scope="col"><font color="#FFFFFF">Center</font></th>
-      <th scope="col"><font color="#FFFFFF">Incharge</font></th>
-      <th scope="col"><font color="#FFFFFF">Contact</font></th>
+      <th scope="col"><font color="#0000FF">State</font></th>
+      <th scope="col"><font color="#0000FF">Date</font></th>
+      <th scope="col"><font color="#0000FF">Time</font></th>
+      <th scope="col"><font color="#0000FF">Center</font></th>
+      <th scope="col"><font color="#0000FF">Incharge</font></th>
+      <th scope="col"><font color="#0000FF">Contact</font></th>
     </tr>
   </thead>
   <tbody>
