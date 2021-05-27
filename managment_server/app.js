@@ -6,21 +6,38 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+const mongoose=require('mongoose');
+const cors=require('cors');
+const bodyParser=require('body-parser');
 var app = express();
-
+var stateRouter=require('./routes/state');
+const url='mongodb+srv://admin:admin@cluster0.qo5vm.mongodb.net/oxygenManager?retryWrites=true&w=majority';
 // view engine setup
+mongoose.connect(url,{
+  useNewUrlParser:true,
+  useCreateIndex:true,
+  useUnifiedTopology:true
+})
+.then((db)=>{
+  console.log("Connected to Database");
+}
+
+);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
+//app.use(bodyParser.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/state', stateRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

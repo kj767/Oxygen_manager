@@ -2,9 +2,23 @@ import React, { Component } from 'react';
 import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 class State extends Component {
-    state = {  }
+    constructor(props){
+      super(props);
+      this.stateData={
+        state:{  
+          name:'',
+          allocated:0,
+          available:0
+        }
+      }
+    }
+    
     render() { 
-        const percentage=60;
+        const display=this.state.stateData.map((state)=>{
+          return(
+            <div></div>
+          );
+        })
         return ( 
             <div className="content">
                 <div className="container-fluid" >
