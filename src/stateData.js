@@ -63,13 +63,14 @@ class State extends Component {
                     
                 <div className="col-lg-3 col-md-6 col-sm-6">
                   <div className="card card-stats">
-                    <div className="card-header card-header-secondary card-header-icon">
+                    <div className="card-header card-header-success card-header-icon">
                       <div className="card-icon">
                         <p style={{"fontWeight":"bolder","color":"#F8F9F9"}}>Maharashtra</p>
                       </div>
                       <h3 className="card-category" style={{"fontFamily":"Lucida Bright","fontWeight":"bolder"}}>Alloted Supplies</h3>
                       <h3 className="card-title" style={{"fontFamily":"Copperplate"}}>1000</h3>
                     </div>
+                    
                     <div className="card-footer">
                      
                       

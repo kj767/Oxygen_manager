@@ -131,9 +131,9 @@ class Dashboard extends Component {
                       
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title">Daily Sales</h4>
+                      <h4 className="card-title">Oxygen Supplied</h4>
                       <p className="card-category">
-                        <span className="text-success"><i className="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                        <span className="text-success"><i className="fa fa-long-arrow-up"></i> 55% </span> in the last month.</p>
                     </div>
                     <div className="card-footer">
                       <div className="stats">
@@ -148,8 +148,8 @@ class Dashboard extends Component {
                       <div className="ct-chart" id="websiteViewsChart"></div>
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title">Email Subscriptions</h4>
-                      <p className="card-category">Last Campaign Performance</p>
+                      <h4 className="card-title">Oxygen Consumed</h4>
+                      <p className="card-category">Per State in 24 Hours</p>
                     </div>
                     <div className="card-footer">
                       <div className="stats">
@@ -164,8 +164,8 @@ class Dashboard extends Component {
                       <div className="ct-chart" id="completedTasksChart"></div>
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title">Completed Tasks</h4>
-                      <p className="card-category">Last Campaign Performance</p>
+                      <h4 className="card-title">Deaths Due to Oxygen Shortage</h4>
+                      <p className="card-category">In the last month</p>
                     </div>
                     <div className="card-footer">
                       <div className="stats">
