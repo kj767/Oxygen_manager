@@ -3,15 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const config=require('./config');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mongoose=require('mongoose');
 const cors=require('cors');
 const bodyParser=require('body-parser');
 var app = express();
+var authenticate=require('./authenticate');
+const passport=require('passport');
 var stateRouter=require('./routes/state');
-const url='mongodb+srv://admin:admin@cluster0.qo5vm.mongodb.net/oxygenManager?retryWrites=true&w=majority';
+const url=config.mongoUrl;
+var supplyRouter=require('./routes/supply');
+
 // view engine setup
 mongoose.connect(url,{
   useNewUrlParser:true,
@@ -33,10 +37,11 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(passport.initialize());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/state', stateRouter);
+app.use('/supply', supplyRouter);
 
 
 // catch 404 and forward to error handler

@@ -13,32 +13,32 @@ class Dashboard extends Component {
       }
 
     }
-    componentDidMount(){
-    console.log('componentDidMount');
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json',
-        "Authorization":"Bearer "+localStorage.getItem("jwt")} 
-	};
-	fetch(`${baseUrl}getDashboardDetails`,requestOptions)
-	.then(res=>res.json())
-	.then(data=>{
-	if(data.error){			
-		console.log(data.error);
-	}	
-	else{
-    console.log(data);
-    // const rev=data.consultation
-		this.setState({
-		  Upcoming : data.upcoming,
-      Completed: data.completed,
-      rating : data.rating,
-      consultation:data.consultation
-			})
-		}
-	})
+  //   componentDidMount(){
+  //   console.log('componentDidMount');
+  //     const requestOptions = {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json',
+  //       "Authorization":"Bearer "+localStorage.getItem("jwt")} 
+	// };
+	// fetch(`${baseUrl}getDashboardDetails`,requestOptions)
+	// .then(res=>res.json())
+	// .then(data=>{
+	// if(data.error){			
+	// 	console.log(data.error);
+	// }	
+	// else{
+  //   console.log(data);
+  //   // const rev=data.consultation
+	// 	this.setState({
+	// 	  Upcoming : data.upcoming,
+  //     Completed: data.completed,
+  //     rating : data.rating,
+  //     consultation:data.consultation
+	// 		})
+	// 	}
+	// })
 
-    }
+  //   }
     render() { 
        let revenue=0;
       this.state.consultation.map((fee)=>{

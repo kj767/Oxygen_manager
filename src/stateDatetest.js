@@ -42,6 +42,7 @@ class State1 extends Component {
         console.log(this.state);
         const display=this.state.stateData.map((state)=>{
           const value=(state.available/state.allocated)*100;
+          const prc = (Math.round(value * 100) / 100).toFixed(2);
           const color =(value<=25?'#df4759': (value>=25 && value <=75 ?  ' #eed202':'green'));
             return(
             <div className="col-lg-3 col-md-6 col-sm-6">
@@ -58,7 +59,7 @@ class State1 extends Component {
                       
                           <div className="col-md-6">
                       <div style={{"height":"100px","width":"100px","padding":"7px"}} >
-                      <CircularProgressbar value={value} text={`${value}%`}
+                      <CircularProgressbar value={prc} text={`${prc}%`}
                 styles={{
                   path: {
                     // Path color
@@ -100,8 +101,10 @@ class State1 extends Component {
         })
         const filtered=this.state.stateData.map((state)=>{
             const value=(state.available/state.allocated)*100;
+            const prc = (Math.round(value * 100) / 100).toFixed(2);
+            console.log(prc);
             const color =(value<=25?'#df4759': (value>=25 && value <=75 ?  ' #eed202':'green'));
-            if(state.name.includes(this.state.search)){
+            if(state.name.toLowerCase().includes(this.state.search)){
               return(
               <div className="col-lg-3 col-md-6 col-sm-6">
                     <div className="card card-stats">
@@ -117,7 +120,7 @@ class State1 extends Component {
                         
                             <div className="col-md-6">
                         <div style={{"height":"100px","width":"100px","padding":"7px"}} >
-                        <CircularProgressbar value={value} text={`${value}%`}
+                        <CircularProgressbar value={prc} text={`${prc}%`}
                   styles={{
                     path: {
                       // Path color

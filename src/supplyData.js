@@ -1,8 +1,49 @@
 import React, { Component } from 'react';
-
+import {baseUrl} from './baseUrl';
 class Supply extends Component {
-    state = {  }
-    render() { 
+    constructor(props){
+      super(props);
+      this.state={
+        supplyin:[]
+      }
+
+    }
+      componentDidMount(){
+        console.log('componentDidMount');
+          const requestOptions = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json'} 
+      };
+      fetch(`${baseUrl}/supply/in`,requestOptions)
+      .then(res=>res.json())
+      .then(data=>{
+      if(data.error){			
+      	console.log(data.error);
+      }	
+      else{
+        console.log(data);
+        this.setState({
+          supplyin:data
+        })
+        // const rev=data.consultation
+      	
+      	}
+      })
+    
+        }
+    render() {
+      const supplyInData=this.state.supplyin.map((state)=>{
+        return(
+        <tr key={state._id}>
+      <td>{state.oxygen_plant}</td>
+      <td>{state.date}</td>
+      <td>{state.quantity}</td>
+      <td>{state.center}</td>
+      <td>{state.incharge}</td>
+      <td>{state.contact}</td>
+    </tr>    
+        );
+      }) 
         return ( 
             <div className="content">
         <div className="container-fluid">
@@ -19,78 +60,23 @@ class Supply extends Component {
                   <div className="table-responsive" style={{"height": "300px", "overflow": "auto" }}>
                     <table class="table">
 
-  <thead class="thead" bgcolor="#FFFFFF">
+                    <thead class="thead" bgcolor="#FFFFFF">
 
-  
+                    
 
-    <tr>
-      <th scope="col"><font color="#0000FF">Oxygen-plant</font></th>
-      <th scope="col"><font color="#0000FF">Date</font></th>
-      <th scope="col"><font color="#0000FF">Time</font></th>
-      <th scope="col"><font color="#0000FF">Delovery-Center</font></th>
-      <th scope="col"><font color="#0000FF">Incharge</font></th>
-      <th scope="col"><font color="#0000FF">Contact</font></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Chennai</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Shimla</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td class="abc">Chennai</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Jalandhar</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td>Bangalore</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Ambala</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td>Delhi</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Dehradun</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td>Baddi</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Jaipur</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td>Chennai</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Lucknow</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-    <tr>
-      <td>Bangalore</td>
-      <td>26-05-2021</td>
-      <td>09:30</td>
-      <td>Indore</td>
-      <td>ABCD</td>
-      <td>9736178898</td>
-    </tr>
-  </tbody>
-</table>
+                      <tr>
+                        <th scope="col"><font color="#0000FF">Oxygen-plant</font></th>
+                        <th scope="col"><font color="#0000FF">Date</font></th>
+                        <th scope="col"><font color="#0000FF">Qauntity</font></th>
+                        <th scope="col"><font color="#0000FF">Delovery-Center</font></th>
+                        <th scope="col"><font color="#0000FF">Incharge</font></th>
+                        <th scope="col"><font color="#0000FF">Contact</font></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {supplyInData}
+                    </tbody>
+                  </table>
                   </div>
                 </div>
               </div>
