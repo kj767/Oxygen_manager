@@ -1,181 +1,175 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {baseUrl} from './baseUrl';
 class Dashboard extends Component {
-    constructor(props){
-      super(props);
-      this.state={
-        Upcoming :0,
-        Completed :0,
-        revenue:0,
-        rating : 0,
-        consultation:[]
-      }
+    constructor(props) {
+        super(props);
+        this.state = {
+            Upcoming: 0,
+            Completed: 0,
+            revenue: 0,
+            rating: 0,
+            consultation: []
+        }
 
     }
-  //   componentDidMount(){
-  //   console.log('componentDidMount');
-  //     const requestOptions = {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json',
-  //       "Authorization":"Bearer "+localStorage.getItem("jwt")} 
-	// };
-	// fetch(`${baseUrl}getDashboardDetails`,requestOptions)
-	// .then(res=>res.json())
-	// .then(data=>{
-	// if(data.error){			
-	// 	console.log(data.error);
-	// }	
-	// else{
-  //   console.log(data);
-  //   // const rev=data.consultation
-	// 	this.setState({
-	// 	  Upcoming : data.upcoming,
-  //     Completed: data.completed,
-  //     rating : data.rating,
-  //     consultation:data.consultation
-	// 		})
-	// 	}
-	// })
-
-  //   }
-    render() { 
-       let revenue=0;
-      this.state.consultation.map((fee)=>{
-        return(
-            revenue=revenue+(fee.fee)
-        )
-      })
+    //   componentDidMount(){   console.log('componentDidMount');     const
+    // requestOptions = {       method: 'POST',       headers: { 'Content-Type':
+    // 'application/json',       "Authorization":"Bearer
+    // "+localStorage.getItem("jwt")} };
+    // fetch(`${baseUrl}getDashboardDetails`,requestOptions) .then(res=>res.json())
+    // .then(data=>{ if(data.error){ 	console.log(data.error); } else{
+    // console.log(data);   // const rev=data.consultation 	this.setState({
+    // Upcoming : data.upcoming,     Completed: data.completed,     rating :
+    // data.rating,     consultation:data.consultation 		}) 	} })   }
+    render() {
+        let revenue = 0;
+        this
+            .state
+            .consultation
+            .map((fee) => {
+                return (revenue = revenue + (fee.fee))
+            })
 
         console.log(revenue);
-     
-        return ( 
+
+        return (
             <div className="content">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats">
-                    <div className="card-header card-header-success card-header-icon">
-                      <div className="card-icon">
-                        <i className="material-icons">store</i>
-                      </div>
-                      <p className="card-category">Total Supplies</p>
-                      <h3 className="card-title">{this.state.Upcoming}
-                        
-                      </h3>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-3 col-md-6 col-sm-6">
+                            <div className="card card-stats">
+                                <div className="card-header card-header-success card-header-icon">
+                                    <div className="card-icon">
+                                        <i className="material-icons">store</i>
+                                    </div>
+                                    <p className="card-category">Total Supplies</p>
+                                    <h3 className="card-title">{this.state.Upcoming}
+
+                                    </h3>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">date_range</i>
+                                        <Link to="bookings">Check Here</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6">
+                            <div className="card card-stats">
+                                <div className="card-header card-header-success card-header-icon">
+                                    <div className="card-icon">
+                                        <i className="material-icons">cloud_done</i>
+                                    </div>
+                                    <p className="card-category">Supplied</p>
+                                    <h3 className="card-title">{revenue}{"Rs"}</h3>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">date_range</i>
+                                        Last 24 Hours
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6">
+                            <div className="card card-stats">
+                                <div className="card-header card-header-danger card-header-icon">
+                                    <div className="card-icon">
+                                        <i className="material-icons">content_copy</i>
+                                    </div>
+                                    <p className="card-category">Requirement</p>
+                                    <h3 className="card-title">{this.state.Completed}</h3>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">date_range</i>
+                                        Last 24 Hours
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6">
+                            <div className="card card-stats">
+                                <div className="card-header card-header-warning card-header-icon">
+                                    <div className="card-icon">
+                                        <i className="fa fa-star"></i>
+                                    </div>
+                                    <p className="card-category">In Process</p>
+                                    <h3 className="card-title">{this.state.rating}{"%"}</h3>
+
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">update</i>
+                                        By users
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                      <i className="material-icons">date_range</i>
-                        <Link to="bookings">Check Here</Link>
-                      </div>
+
+                    <div className="row">
+                        <div className="col-md-4">
+                            <div className="card card-chart">
+                                <div className="card-header card-header-success">
+                                    <div className="ct-chart" id="dailySalesChart"></div>
+
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Oxygen Supplied</h4>
+                                    <p className="card-category">
+                                        <span className="text-success">
+                                            <i className="fa fa-long-arrow-up"></i>
+                                            55%
+                                        </span>
+                                        in the last month.</p>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">access_time</i>
+                                        updated 4 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="card card-chart">
+                                <div className="card-header card-header-warning">
+                                    <div className="ct-chart" id="websiteViewsChart"></div>
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Oxygen Consumed</h4>
+                                    <p className="card-category">Per State in 24 Hours</p>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">access_time</i>
+                                        campaign sent 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="card card-chart">
+                                <div className="card-header card-header-danger">
+                                    <div className="ct-chart" id="completedTasksChart"></div>
+                                </div>
+                                <div className="card-body">
+                                    <h4 className="card-title">Deaths Due to Oxygen Shortage</h4>
+                                    <p className="card-category">In the last month</p>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">access_time</i>
+                                        campaign sent 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats">
-                    <div className="card-header card-header-success card-header-icon">
-                      <div className="card-icon">
-                        <i className="material-icons">cloud_done</i>
-                      </div>
-                      <p className="card-category">Supplied</p>
-        <h3 className="card-title">{revenue}{"Rs"}</h3>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <i className="material-icons">date_range</i> Last 24 Hours
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats">
-                    <div className="card-header card-header-danger card-header-icon">
-                      <div className="card-icon">
-                        <i className="material-icons">content_copy</i>
-                      </div>
-                      <p className="card-category">Requirement</p>
-        <h3 className="card-title">{this.state.Completed}</h3>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                      <i className="material-icons">date_range</i> Last 24 Hours
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 col-sm-6">
-                  <div className="card card-stats">
-                    <div className="card-header card-header-warning card-header-icon">
-                      <div className="card-icon">
-                        <i className="fa fa-star"></i>
-                      </div>
-                      <p className="card-category">In Process</p>
-        <h3 className="card-title">{this.state.rating}{"%"}</h3>
-                      
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <i className="material-icons">update</i> By users
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="row">
-                <div className="col-md-4">
-                  <div className="card card-chart">
-                    <div className="card-header card-header-success">
-                      <div className="ct-chart" id="dailySalesChart"></div>
-                      
-                    </div>
-                    <div className="card-body">
-                      <h4 className="card-title">Oxygen Supplied</h4>
-                      <p className="card-category">
-                        <span className="text-success"><i className="fa fa-long-arrow-up"></i> 55% </span> in the last month.</p>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <i className="material-icons">access_time</i> updated 4 minutes ago
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <div className="card card-chart">
-                    <div className="card-header card-header-warning">
-                      <div className="ct-chart" id="websiteViewsChart"></div>
-                    </div>
-                    <div className="card-body">
-                      <h4 className="card-title">Oxygen Consumed</h4>
-                      <p className="card-category">Per State in 24 Hours</p>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <i className="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <div className="card card-chart">
-                    <div className="card-header card-header-danger">
-                      <div className="ct-chart" id="completedTasksChart"></div>
-                    </div>
-                    <div className="card-body">
-                      <h4 className="card-title">Deaths Due to Oxygen Shortage</h4>
-                      <p className="card-category">In the last month</p>
-                    </div>
-                    <div className="card-footer">
-                      <div className="stats">
-                        <i className="material-icons">access_time</i> campaign sent 2 days ago
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <div className="row">
+                    {/* <div className="row">
                 <div className="col-lg-6 col-md-12">
                   <div className="card">
                     <div className="card-header card-header-tabs card-header-primary">
@@ -466,11 +460,11 @@ class Dashboard extends Component {
                   </div>
                 </div>
               </div> */}
+                </div>
             </div>
-          </div>
-         );
-           
+        );
+
     }
 }
- 
+
 export default Dashboard;
