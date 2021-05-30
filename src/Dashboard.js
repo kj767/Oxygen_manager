@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {baseUrl} from './baseUrl';
-import {Line} from 'react-chartjs-2';
+import {Line, Bar} from 'react-chartjs-2';
 class Dashboard extends Component {
     constructor(props) {
         super(props);
@@ -120,11 +120,19 @@ class Dashboard extends Component {
                                     <div className="ct-chart" id="dailySalesChart"></div>
                                   <Line 
                                   data={{
-                                    labels: ['J','F','M','A','M'] 
+                                    labels: ['Jan','Feb','Mar','Apr','May'],
+                                    datasets: [{
+                                      label: '',
+                                      data: [65, 59, 80, 81, 56, 55, 40],
+                                      fill: false,
+                                      borderColor: 'green',
+                                      tension: 0
+                                    }]
                                   }}
+
                                
                                   options= {{
-                                    maintainAspectRatio:false
+                                    maintainAspectRatio:true
                                   }}
                                   />
                                 </div>
@@ -149,6 +157,23 @@ class Dashboard extends Component {
                             <div className="card card-chart">
                                 <div className="card-header card-header-warning">
                                     <div className="ct-chart" id="websiteViewsChart"></div>
+                                    <Line 
+                                  data={{
+                                    labels: ['Jan','Feb','Mar','Apr','May'],
+                                    datasets: [{
+                                      label: '',
+                                      data: [65, 59, 80, 81, 56, 55, 40],
+                                      fill: false,
+                                      borderColor: 'gold',
+                                      tension: 0
+                                    }]
+                                  }}
+
+                               
+                                  options= {{
+                                    maintainAspectRatio:true
+                                  }}
+                                  />
                                 </div>
                                 <div className="card-body">
                                     <h4 className="card-title">Oxygen Consumed</h4>
@@ -164,8 +189,41 @@ class Dashboard extends Component {
                         </div>
                         <div className="col-md-4">
                             <div className="card card-chart">
-                                <div className="card-header card-header-danger">
+                                <div className="card-header card-header-info">
                                     <div className="ct-chart" id="completedTasksChart"></div>
+                                    <Bar 
+                                  data={{
+                                    labels: ['Jan','Feb','Mar','Apr','May'],
+                                    datasets: [{
+                                      label: 'My First Dataset',
+                                      data: [65, 59, 80, 81, 56, 55, 40],
+                                      backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(201, 203, 207, 0.2)'
+                                      ],
+                                      borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 159, 64)',
+                                        'rgb(255, 205, 86)',
+                                        'rgb(75, 192, 192)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(201, 203, 207)'
+                                      ],
+                                      borderWidth: 1
+                                    }]
+                                  }}
+
+                               
+                                  options= {{
+                                    maintainAspectRatio:true
+                                  }}
+                                  />
                                 </div>
                                 <div className="card-body">
                                     <h4 className="card-title">Deaths Due to Oxygen Shortage</h4>
