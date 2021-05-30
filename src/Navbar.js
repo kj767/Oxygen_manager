@@ -57,15 +57,6 @@ class Navbar extends Component {
                         <span className="navbar-toggler-icon icon-bar"></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-end">
-                        {/* <form className="navbar-form">
-                  <span className="bmd-form-group"><div className="input-group no-border">
-                    <input type="text" value="" className="form-control" placeholder="Search..." />
-                    <button type="submit" className="btn btn-white btn-round btn-just-icon">
-                      <i className="material-icons">search</i>
-                      <div className="ripple-container"></div>
-                    </button>
-                  </div></span>
-                </form> */}
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link className="nav-link" to="dashboard">

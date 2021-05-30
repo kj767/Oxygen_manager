@@ -7,25 +7,37 @@ class Supply extends Component {
         super(props);
         this.state = {
             supplyin: [],
-            supplyout:[],
-            interState:[],
+            supplyout: [],
+            interState: [],
             show1: false,
-            show2:false,
-            plant:'',
-            state:'',
-            date:'',
-            quantity:0,
-            incharge:'',
-            center:'',
-            contact:''
+            show2: false,
+            plant: '',
+            state: '',
+            date: '',
+            quantity: 0,
+            incharge: '',
+            center: '',
+            contact: ''
         }
-        this.handleClose = this.handleClose.bind(this);
-        this.handleShow1=this.handleShow1.bind(this);
-        this.handleShow2=this.handleShow2.bind(this);
-        this.handleInputChange=this.handleInputChange.bind(this);
-        this.handleSubmit1=this.handleSubmit1.bind(this);
-        this.handleSubmit2=this.handleSubmit2.bind(this);
-      
+        this.handleClose = this
+            .handleClose
+            .bind(this);
+        this.handleShow1 = this
+            .handleShow1
+            .bind(this);
+        this.handleShow2 = this
+            .handleShow2
+            .bind(this);
+        this.handleInputChange = this
+            .handleInputChange
+            .bind(this);
+        this.handleSubmit1 = this
+            .handleSubmit1
+            .bind(this);
+        this.handleSubmit2 = this
+            .handleSubmit2
+            .bind(this);
+
     }
     componentDidMount() {
         console.log('componentDidMount');
@@ -47,10 +59,10 @@ class Supply extends Component {
 
                 }
             })
-            .catch(err=>{
-                console.log(err);		
-                });
-                fetch(`${baseUrl}supply/out`, requestOptions)
+            .catch(err => {
+                console.log(err);
+            });
+        fetch(`${baseUrl}supply/out`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {
@@ -62,24 +74,24 @@ class Supply extends Component {
 
                 }
             })
-            .catch(err=>{
-                console.log(err);		
-                });
-                fetch(`${baseUrl}supply/interState`, requestOptions)
-                .then(res => res.json())
-                .then(data => {
-                    if (data.error) {
-                        console.log(data.error);
-                    } else {
-                        console.log(data);
-                        this.setState({interState: data})
-                        // const rev=data.consultation
-    
-                    }
-                })
-                .catch(err=>{
-                    console.log(err);		
-                    });
+            .catch(err => {
+                console.log(err);
+            });
+        fetch(`${baseUrl}supply/interState`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    console.log(data);
+                    this.setState({interState: data})
+                    // const rev=data.consultation
+
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
     }
     handleInputChange(event) {
@@ -90,72 +102,83 @@ class Supply extends Component {
         const name = target.name;
         this.setState({[name]: value});
     }
-    handleClose(){
-           this.setState({
-               show1:false,
-               show2:false
-           }) ;    
+    handleClose() {
+        this.setState({show1: false, show2: false});
     }
-    handleShow1(){
-        this.setState({
-            show1: true
-        });
+    handleShow1() {
+        this.setState({show1: true});
     }
-    handleShow2(){
-        this.setState({
-            show2: true
-        });
+    handleShow2() {
+        this.setState({show2: true});
     }
-    handleSubmit1(e){
+    handleSubmit1(e) {
         console.log("In submit")
-        var a=parseInt(this.state.quantity)
-        
+        var a = parseInt(this.state.quantity)
+
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({oxygen_plant: this.state.plant, quantity:a,date:this.state.date, center:this.state.center,incharge:this.state.incharge,contact:this.state.contact})
+            body: JSON.stringify({
+                oxygen_plant: this.state.plant,
+                quantity: a,
+                date: this.state.date,
+                center: this.state.center,
+                incharge: this.state.incharge,
+                contact: this.state.contact
+            })
         };
         fetch(`${baseUrl}supply/in`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.error) {
-                     M.toast({html: "Enter correct credentials" ,classes:'#c62828 red darken-3'})
+                    M.toast({html: "Enter correct credentials", classes: '#c62828 red darken-3'})
                     console.log('Some Error occured');
                 } else {
                     //this.props.change();
-                    M.toast({html: "Data Saved" ,classes:'#c62828 green darken-3'})
-                    window.location.reload();
+                    M.toast({html: "Data Saved", classes: '#c62828 green darken-3'})
+                    window
+                        .location
+                        .reload();
                 }
             })
             .catch(err => {
                 //console.log(err);
             })
     }
-    handleSubmit2(e){
+    handleSubmit2(e) {
         console.log("In submit")
-        var a=parseInt(this.state.quantity)
-        
+        var a = parseInt(this.state.quantity)
+
         const requestOptions = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({state: this.state.state, quantity:a,date:this.state.date, center:this.state.center,incharge:this.state.incharge,contact:this.state.contact})
+            body: JSON.stringify({
+                state: this.state.state,
+                quantity: a,
+                date: this.state.date,
+                center: this.state.center,
+                incharge: this.state.incharge,
+                contact: this.state.contact
+            })
         };
         fetch(`${baseUrl}supply/out`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.error) {
-                     M.toast({html: "Enter correct credentials" ,classes:'#c62828 red darken-3'})
+                    M.toast({html: "Enter correct credentials", classes: '#c62828 red darken-3'})
                     console.log('Some Error occured');
                 } else {
                     //this.props.change();
-                    M.toast({html: "Data Saved" ,classes:'#c62828 green darken-3'})
-                    window.location.reload();
+                    M.toast({html: "Data Saved", classes: '#c62828 green darken-3'})
+                    window
+                        .location
+                        .reload();
                 }
             })
             .catch(err => {
@@ -164,7 +187,7 @@ class Supply extends Component {
     }
     render() {
         console.log(this.state);
-         const supplyInData = this
+        const supplyInData = this
             .state
             .supplyin
             .map((state) => {
@@ -179,7 +202,7 @@ class Supply extends Component {
                     </tr>
                 );
             });
-            const supplyOutData = this
+        const supplyOutData = this
             .state
             .supplyout
             .map((state) => {
@@ -194,7 +217,7 @@ class Supply extends Component {
                     </tr>
                 );
             });
-            const interStateData = this
+        const interStateData = this
             .state
             .interState
             .map((state) => {
@@ -204,11 +227,11 @@ class Supply extends Component {
                         <td>{state.to}</td>
                         <td>{state.quantity}</td>
                         <td>{state.createdAt}</td>
-                        
+
                     </tr>
                 );
             });
-            
+
         return (
             <div className="content">
                 <div className="container-fluid">
@@ -223,8 +246,7 @@ class Supply extends Component {
                                             "position": "relative",
                                             "float": "right"
                                         }}
-                                        onClick={this.handleShow1}
-                                        >Add Entry</button>
+                                            onClick={this.handleShow1}>Add Entry</button>
                                     </h4>
                                     <p className="card-category"></p>
                                 </div>
@@ -278,9 +300,8 @@ class Supply extends Component {
                                             style={{
                                             "position": "relative",
                                             "float": "right"
-                                            }}
-                                            onClick={this.handleShow2}
-                                        >Add Entry</button>
+                                        }}
+                                            onClick={this.handleShow2}>Add Entry</button>
                                     </h4>
                                 </div>
                                 <div className="card-body">
@@ -319,15 +340,13 @@ class Supply extends Component {
                                 </div>
                             </div>
                         </div>
-                       
-                    
-                
-                    <div className="col-md-6">
+
+                        <div className="col-md-6">
                             <div className="card">
                                 <div className="card-header card-header-primary">
                                     <h4 className="card-title ">
                                         Inter State Transfer
-                                       
+
                                     </h4>
                                 </div>
                                 <div className="card-body">
@@ -352,7 +371,6 @@ class Supply extends Component {
                                                     <th >To State</th>
                                                     <th >Qauntity</th>
                                                     <th >Date</th>
-                                                    
 
                                                 </tr>
 
@@ -366,55 +384,116 @@ class Supply extends Component {
                             </div>
                         </div>
 
-                        </div>
+                    </div>
 
                 </div>
                 <Modal show={this.state.show1} onHide={this.handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Supply In </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <input type="text" className="form-control" name="plant" placeholder="Plant Name.." onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="date" placeholder="Date.." onChange={this.handleInputChange}/>
-            <input type="number" className="form-control" name="quantity" placeholder="Qauntity.." onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="center" placeholder="Center Name.." onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="incharge" placeholder="Incharge.." onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="contact" placeholder="Conatct Number.." onChange={this.handleInputChange}/>
-        </Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-secondary" onClick={this.handleClose}>
-            Close
-          </button>
-          <button className="btn btn-primary" onClick={this.handleSubmit1}>
-            Submit
-          </button>
-        </Modal.Footer>
-      </Modal>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Supply In
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="plant"
+                            placeholder="Plant Name.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="date"
+                            placeholder="Date.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="quantity"
+                            placeholder="Qauntity.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="center"
+                            placeholder="Center Name.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="incharge"
+                            placeholder="Incharge.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="contact"
+                            placeholder="Conatct Number.."
+                            onChange={this.handleInputChange}/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="btn btn-secondary" onClick={this.handleClose}>
+                            Close
+                        </button>
+                        <button className="btn btn-primary" onClick={this.handleSubmit1}>
+                            Submit
+                        </button>
+                    </Modal.Footer>
+                </Modal>
 
-
-      <Modal show={this.state.show2} onHide={this.handleClose2}>
-        <Modal.Header closeButton>
-          <Modal.Title>Supply In </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <input type="text" className="form-control" name="center" placeholder=" From Center" onChange={this.handleInputChange}/>
-             <input type="text" className="form-control" name="date" placeholder="Date.." onChange={this.handleInputChange}/>
-            <input type="number" className="form-control" name="quantity" placeholder="Qauntity.." onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="state" placeholder="To State" onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="incharge" placeholder="Incharge" onChange={this.handleInputChange}/>
-            <input type="text" className="form-control" name="contact" placeholder="Contact" onChange={this.handleInputChange}/>
-        </Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-secondary" onClick={this.handleClose}>
-            Close
-          </button>
-          <button className="btn btn-primary" onClick={this.handleSubmit2}>
-            Submit
-          </button>
-        </Modal.Footer>
-      </Modal>
+                <Modal show={this.state.show2} onHide={this.handleClose2}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Supply In
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="center"
+                            placeholder=" From Center"
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="date"
+                            placeholder="Date.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="number"
+                            className="form-control"
+                            name="quantity"
+                            placeholder="Qauntity.."
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="state"
+                            placeholder="To State"
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="incharge"
+                            placeholder="Incharge"
+                            onChange={this.handleInputChange}/>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="contact"
+                            placeholder="Contact"
+                            onChange={this.handleInputChange}/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="btn btn-secondary" onClick={this.handleClose}>
+                            Close
+                        </button>
+                        <button className="btn btn-primary" onClick={this.handleSubmit2}>
+                            Submit
+                        </button>
+                    </Modal.Footer>
+                </Modal>
             </div>
-            
+
         );
     }
 }

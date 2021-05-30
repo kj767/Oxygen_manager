@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import {Modal} from 'react-bootstrap';
 import {baseUrl} from './baseUrl';
 import M from 'materialize-css';
@@ -25,7 +25,7 @@ class State1 extends Component {
           method: 'GET',
           headers: { 'Content-Type': 'application/json'}
       };
-      fetch(`http://localhost:5000/state/getStateData`,requestOptions)
+      fetch(`${baseUrl}state/getStateData`,requestOptions)
       .then(res=>res.json())
       .then(data=>{
       if(data.error){			

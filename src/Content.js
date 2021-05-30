@@ -12,14 +12,7 @@ class Content extends Component {
                 <Route exact path="/" component={Dashboard} /> 
                 <Route path="/dashboard" component={Dashboard}/>
                 <Route path="/demand" component={State1} /> 
-                <Route path="/supply" component={Supply} />
-                {/* <Route path="/user" component={User}/>
-                <Route path="/bookings" component={Bookings}/>
-                <Route path="/account" component={Account}/>
-                <Route path="/settings" component={Settings}/>
-                <Route path="/wallet" component={Wallet}/>
-                <Route path="/withdraw" component={Withdr0000000aw} /> */}
-                
+                <Route path="/supply" component={Supply} />  
             </>
          );
     }

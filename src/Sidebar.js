@@ -39,20 +39,6 @@ class Sidebar extends Component {
                                 <p>Supplies</p>
                             </Link>
                         </li>
-                       
-
-                        {/*<li className="nav-item ">
-            <a className="nav-link" href="./notifications.html">
-              <i className="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li className="nav-item ">
-            <a className="nav-link" href="./rtl.html">
-              <i className="material-icons">language</i>
-              <p>RTL Support</p>
-            </a>
-          </li>*/}
                         <li className="nav-item active-pro ">
                             <a className="nav-link" href="#">
                                 <i className="material-icons">unarchive</i>
