@@ -8,35 +8,9 @@ class Navbar extends Component {
             notification: []
         }
     }
-    componentDidMount() {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                "Authorization": "Bearer " + localStorage.getItem("jwt")
-            }
-        };
-        fetch(`${baseUrl}consultantNotification`, requestOptions)
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {} else {
-                    console.log(data);
-
-                    this.setState({notification: data.result})
-                }
-            })
-            .catch(err => {})
-    }
+    // 
     render() {
-        const not = this
-            .state
-            .notification
-            .map((not, index) => {
-
-                return (
-                    <p key={index}>You have an appointment at {not.startAt}</p>
-                )
-            })
+       
         return (
             <nav
                 className="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
@@ -75,7 +49,7 @@ class Navbar extends Component {
                                     aria-haspopup="true"
                                     aria-expanded="false">
                                     <i className="material-icons">notifications</i>
-                                    <span className="notification">{this.state.notification.length}</span>
+                                    <span className="notification">0</span>
                                     <p className="d-lg-none d-md-block">
                                         Some Actions
                                     </p>
@@ -83,7 +57,7 @@ class Navbar extends Component {
                                 <div
                                     className="dropdown-menu dropdown-menu-right"
                                     aria-labelledby="navbarDropdownMenuLink">
-                                    {not}
+                                   
                                 </div>
                             </li>
                             <li className="nav-item dropdown">

@@ -192,13 +192,13 @@ class Supply extends Component {
             .supplyin
             .map((state) => {
                 return (
-                    <tr key={state._id}>
-                        <td>{state.oxygen_plant}</td>
-                        <td>{state.date}</td>
-                        <td>{state.quantity}</td>
-                        <td>{state.center}</td>
-                        <td>{state.incharge}</td>
-                        <td>{state.contact}</td>
+                    <tr key={state._id} style={{'fontFamily':'Montserrat'}}>
+                        <td><h6>{state.oxygen_plant}</h6></td>
+                        <td><h6>{state.date}</h6></td>
+                        <td><h6>{state.quantity}</h6></td>
+                        <td><h6>{state.center}</h6></td>
+                        <td><h6>{state.incharge}</h6></td>
+                        <td><h6>{state.contact}</h6></td>
                     </tr>
                 );
             });
@@ -207,13 +207,13 @@ class Supply extends Component {
             .supplyout
             .map((state) => {
                 return (
-                    <tr key={state._id}>
-                        <td>{state.center}</td>
-                        <td>{state.createdAt}</td>
-                        <td>{state.quantity}</td>
-                        <td>{state.state}</td>
-                        <td>{state.incharge}</td>
-                        <td>{state.contact}</td>
+                    <tr key={state._id} style={{'fontFamily':'Montserrat'}}>
+                        <td><h6>{state.center}</h6></td>
+                        <td><h6>{state.createdAt}</h6></td>
+                        <td><h6>{state.quantity}</h6></td>
+                        <td><h6>{state.state}</h6></td>
+                        <td><h6>{state.incharge}</h6></td>
+                        <td><h6>{state.contact}</h6></td>
                     </tr>
                 );
             });
@@ -222,11 +222,11 @@ class Supply extends Component {
             .interState
             .map((state) => {
                 return (
-                    <tr key={state._id}>
-                        <td>{state.from}</td>
-                        <td>{state.to}</td>
-                        <td>{state.quantity}</td>
-                        <td>{state.createdAt}</td>
+                    <tr key={state._id} style={{'fontFamily':'Montserrat'}}>
+                        <td><h6>{state.from}</h6></td>
+                        <td><h6>{state.to}</h6></td>
+                        <td><h6>{state.quantity}</h6></td>
+                        <td><h6>{state.createdAt}</h6></td>
 
                     </tr>
                 );

@@ -18,7 +18,7 @@ class Auth extends Component {
                 <BrowserRouter history={() => createBrowserHistory()}>
                     <div>
                         <Route exact path="/" component={Login}/>
-                        <Route exact path="/signin" component={Login}/>
+                        
 
                     </div>
 

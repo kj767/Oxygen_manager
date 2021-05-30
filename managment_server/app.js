@@ -63,7 +63,7 @@ app.use(function(err, req, res, next) {
 });
 app.get('*', function(req, res) { // To server static files to the users
 
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
 

@@ -17,7 +17,7 @@ class Dashboard extends Component {
                 'Content-Type': 'application/json'
             }
         };
-        fetch(`http://localhost:5000/dashboard/getDashboardDetails`, requestOptions)
+        fetch(`${baseUrl}dashboard/getDashboardDetails`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {} else {
@@ -64,7 +64,7 @@ class Dashboard extends Component {
                             <div className="card card-stats">
                                 <div className="card-header card-header-danger card-header-icon">
                                     <div className="card-icon">
-                                        <i className="material-icons">content_copy</i>
+                                        <i className="material-icons">donut_large</i>
                                     </div>
                                     <p className="card-category">Urgent Requirement</p>
                                     <h3
@@ -106,7 +106,7 @@ class Dashboard extends Component {
                             <div className="card card-stats">
                                 <div className="card-header card-header-danger card-header-icon">
                                     <div className="card-icon">
-                                        <i className="fa fa-star"></i>
+                                        <i className="material-icons">local_hospital</i>
                                     </div>
                                     <p className="card-category">Death Due to Shortage</p>
                                     <h3
@@ -134,23 +134,30 @@ class Dashboard extends Component {
                                     <Line
                                         data={{
                                         labels: [
-                                            'Jan', 'Feb', 'Mar', 'Apr', 'May'
+                                            'Jun-20',  'Jul-20','Aug-20','Sep-20','Oct-20','Nov-20','Dec-20','Jan-21', 'Feb-21', 'Mar-21', 'Apr-21', 'May-21'
                                         ],
                                         datasets: [
                                             {
-                                                label: '',
+                                                label: 'Supplied',
                                                 data: [
-                                                    65,
-                                                    59,
-                                                    80,
+                                                    83,
+                                                    90,
                                                     81,
-                                                    56,
-                                                    55,
-                                                    40
+                                                    75,
+                                                    73,
+                                                    70,
+                                                    68,
+                                                    65,
+                                                    68,
+                                                    71,
+                                                    75,
+                                                    79
+
                                                 ],
                                                 fill: false,
-                                                borderColor: 'green',
-                                                tension: 0
+                                                borderColor: 'white',
+                                                tension: 0,
+                                                pointBorderWidth:2.5
                                             }
                                         ]
                                     }}
@@ -179,26 +186,48 @@ class Dashboard extends Component {
                             <div className="card card-chart">
                                 <div className="card-header card-header-warning">
                                     <div className="ct-chart" id="websiteViewsChart"></div>
-                                    <Line
+                                    <Bar
                                         data={{
                                         labels: [
-                                            'Jan', 'Feb', 'Mar', 'Apr', 'May'
+                                            'Jun-20',  'Jul-20','Aug-20','Sep-20','Oct-20','Nov-20','Dec-20','Jan-21', 'Feb-21', 'Mar-21', 'Apr-21', 'May-21'
                                         ],
                                         datasets: [
                                             {
-                                                label: '',
+                                                label: 'Consumed',
                                                 data: [
-                                                    65,
-                                                    59,
-                                                    80,
-                                                    81,
-                                                    56,
+                                                    63,
+                                                    70,
+                                                    61,
                                                     55,
-                                                    40
+                                                    53,
+                                                    50,
+                                                    48,
+                                                    45,
+                                                    68,
+                                                    71,
+                                                    75,
+                                                    79
                                                 ],
-                                                fill: false,
-                                                borderColor: 'gold',
-                                                tension: 0
+                                                backgroundColor: [
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                ],
+                                                borderColor: [
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    'white',
+                                                    
+                                                ],
+                                                borderWidth: 1,
+                                                barThickness:20
+
                                             }
                                         ]
                                     }}
@@ -208,7 +237,7 @@ class Dashboard extends Component {
                                 </div>
                                 <div className="card-body">
                                     <h4 className="card-title">Oxygen Consumed</h4>
-                                    <p className="card-category">Per State in 24 Hours</p>
+                                    <p className="card-category">Per Month</p>
                                 </div>
                                 <div className="card-footer">
                                     <div className="stats">
@@ -220,44 +249,28 @@ class Dashboard extends Component {
                         </div>
                         <div className="col-md-4">
                             <div className="card card-chart">
-                                <div className="card-header card-header-info">
+                                <div className="card-header card-header-danger">
                                     <div className="ct-chart" id="completedTasksChart"></div>
-                                    <Bar
+                                    <Line
                                         data={{
                                         labels: [
-                                            'Jan', 'Feb', 'Mar', 'Apr', 'May'
+                                            'Jun-20',  'Jul-20','Aug-20','Sep-20','Oct-20','Nov-20','Dec-20','Jan-21', 'Feb-21', 'Mar-21', 'Apr-21', 'May-21'
                                         ],
                                         datasets: [
                                             {
-                                                label: 'My First Dataset',
+                                                label: 'Deaths',
                                                 data: [
-                                                    65,
-                                                    59,
-                                                    80,
-                                                    81,
-                                                    56,
-                                                    55,
-                                                    40
+                                                    28,
+                                                    26,
+                                                    24,
+                                                    20,
+                                                    18,
+                                                    16,14,12,15,20,30,40
                                                 ],
-                                                backgroundColor: [
-                                                    'rgba(255, 99, 132, 0.2)',
-                                                    'rgba(255, 159, 64, 0.2)',
-                                                    'rgba(255, 205, 86, 0.2)',
-                                                    'rgba(75, 192, 192, 0.2)',
-                                                    'rgba(54, 162, 235, 0.2)',
-                                                    'rgba(153, 102, 255, 0.2)',
-                                                    'rgba(201, 203, 207, 0.2)'
-                                                ],
-                                                borderColor: [
-                                                    'rgb(255, 99, 132)',
-                                                    'rgb(255, 159, 64)',
-                                                    'rgb(255, 205, 86)',
-                                                    'rgb(75, 192, 192)',
-                                                    'rgb(54, 162, 235)',
-                                                    'rgb(153, 102, 255)',
-                                                    'rgb(201, 203, 207)'
-                                                ],
-                                                borderWidth: 1
+                                                fill: false,
+                                                borderColor: 'white',
+                                                tension: 0,
+                                                pointBorderWidth:2.5
                                             }
                                         ]
                                     }}
@@ -267,7 +280,7 @@ class Dashboard extends Component {
                                 </div>
                                 <div className="card-body">
                                     <h4 className="card-title">Deaths Due to Oxygen Shortage</h4>
-                                    <p className="card-category">In the last month</p>
+                                    <p className="card-category">Per Month Data</p>
                                 </div>
                                 <div className="card-footer">
                                     <div className="stats">

@@ -35,7 +35,7 @@ class Sidebar extends Component {
                         </li>
                         <li className="nav-item ">
                             <Link className="nav-link" to="/supply">
-                                <i className="material-icons">content_paste</i>
+                                <i className="material-icons">airport_shuttle</i>
                                 <p>Supplies</p>
                             </Link>
                         </li>
@@ -46,7 +46,7 @@ class Sidebar extends Component {
                                     className="btn btn-primary"
                                     onClick={() => {
                                     localStorage.clear();
-                                    window.location = '/signin';
+                                    window.location = '/';
                                 }}>Log Out</button>
                             </a>
                         </li>
