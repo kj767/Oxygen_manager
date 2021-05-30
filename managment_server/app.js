@@ -61,5 +61,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+app.get('*', function(req, res) { // To server static files to the users
+
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
 
 module.exports = app;
