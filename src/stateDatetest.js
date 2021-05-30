@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
+import {Modal} from 'react-bootstrap';
+import {baseUrl} from './baseUrl';
+import M from 'materialize-css';
 import 'react-circular-progressbar/dist/styles.css';
 class State1 extends Component {
     constructor(props){
@@ -7,8 +10,15 @@ class State1 extends Component {
       this.state={
         stateData:[],
         search:"",
+        show:false,
+        from:'',
+        to:'',
+        quantity:0
       }
       this.handleInputChange=this.handleInputChange.bind(this);
+      this.handleClose=this.handleClose.bind(this);
+      this.handleSubmit=this.handleSubmit.bind(this);
+      this.handleShow=this.handleShow.bind(this);
     }
     componentDidMount(){
         const requestOptions = {
@@ -32,11 +42,49 @@ class State1 extends Component {
       console.log(err);		
       });
     }
-    handleInputChange(e){
-        console.log(e.target.value);
-        this.setState({
-            search:e.target.value
-        })
+    handleClose(){
+      this.setState({
+          show:false,
+          
+      }) ;    
+}
+    handleShow(){
+      this.setState({
+       show: true
+   });
+}
+handleInputChange(event) {
+  const target = event.target;
+  const value = target.type === 'checkbox'
+      ? target.checked
+      : target.value;
+  const name = target.name;
+  this.setState({[name]: value});
+}
+    handleSubmit(e){
+      console.log("In submit")
+      var a=parseInt(this.state.quantity)
+      
+      const requestOptions = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({from:this.state.from,to:this.state.to,quantity:a})
+      };
+      fetch(`${baseUrl}transferOxygen`, requestOptions)
+          .then(res => res.json())
+          .then(data => {
+              console.log(data);
+            
+                  //this.props.change();
+                  M.toast({html: "Transfer Sucessfull" ,classes:'#c62828 green darken-3'});
+                  window.location.reload();
+              
+          })
+          .catch(err => {
+              //console.log(err);
+          })
     }
     render() { 
         console.log(this.state);
@@ -163,10 +211,37 @@ class State1 extends Component {
           });
           
         return ( 
+          
             <div className="content">
+              <div>
+              <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Supply In </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <input type="text" className="form-control" name="from" placeholder=" From State" onChange={this.handleInputChange} />
+             <input type="text" className="form-control" name="to" placeholder="To state" onChange={this.handleInputChange}/>
+            <input type="number" className="form-control" name="quantity" placeholder="Qauntity.." onChange={this.handleInputChange}/>
+            </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={this.handleClose}>
+            Close
+          </button>
+          <button className="btn btn-primary" onClick={this.handleSubmit}>
+            Submit
+          </button>
+        </Modal.Footer>
+      </Modal>
+              </div>
                 <div className="container-fluid" >
                     <div className="row">
-                        <input className="form-contol" name="search" placeholder="Enter State" onChange={this.handleInputChange}/>
+                      <div className="col-md-9">
+                        <input className="form-contol" name="search" placeholder="Search State ..." onChange={this.handleInputChange}/>
+                        </div>
+                        <div className="col-md-3">
+                          <button className="btn btn-primary" onClick={this.handleShow}>Inter-State Transfer
+                          </button>
+                        </div>
                     </div>
                     <div className="row">
                         

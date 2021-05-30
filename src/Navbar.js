@@ -68,7 +68,7 @@ class Navbar extends Component {
                 </form> */}
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/home">
+                                <Link className="nav-link" to="dashboard">
                                     <i className="material-icons">dashboard</i>
                                     <p className="d-lg-none d-md-block">
                                         Stats

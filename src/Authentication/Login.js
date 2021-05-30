@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {baseUrl} from '../baseUrl';
 import {Form, Button} from "react-bootstrap";
 import "./Login.css";
+import M from 'materialize-css';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -44,7 +45,7 @@ class Login extends Component {
             .then(data => {
                 console.log(data);
                 if (data.error) {
-                    // M.toast({html: "Invalid Password " ,classes:'#c62828 red darken-3'})
+                     M.toast({html: "Enter correct credentials" ,classes:'#c62828 red darken-3'})
                     console.log('Some Error occured');
                 } else {
                     //this.props.change();

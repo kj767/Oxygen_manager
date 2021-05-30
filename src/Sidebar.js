@@ -39,18 +39,7 @@ class Sidebar extends Component {
                                 <p>Supplies</p>
                             </Link>
                         </li>
-                        <li className="nav-item ">
-                            <Link className="nav-link" to="/account">
-                                <i className="material-icons">assignment_turned_in</i>
-                                <p>Account Verification</p>
-                            </Link>
-                        </li>
-                        <li className="nav-item ">
-                            <Link className="nav-link" to="/settings">
-                                <i className="material-icons">settings</i>
-                                <p>Settings</p>
-                            </Link>
-                        </li>
+                       
 
                         {/*<li className="nav-item ">
             <a className="nav-link" href="./notifications.html">

@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
 import {baseUrl} from './baseUrl';
+import {Modal} from 'react-bootstrap';
+import M from 'materialize-css';
 class Supply extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            supplyin: []
+            supplyin: [],
+            supplyout:[],
+            interState:[],
+            show1: false,
+            show2:false,
+            plant:'',
+            state:'',
+            date:'',
+            quantity:0,
+            incharge:'',
+            center:'',
+            contact:''
         }
-
+        this.handleClose = this.handleClose.bind(this);
+        this.handleShow1=this.handleShow1.bind(this);
+        this.handleShow2=this.handleShow2.bind(this);
+        this.handleInputChange=this.handleInputChange.bind(this);
+        this.handleSubmit1=this.handleSubmit1.bind(this);
+        this.handleSubmit2=this.handleSubmit2.bind(this);
+      
     }
     componentDidMount() {
         console.log('componentDidMount');
@@ -28,10 +47,124 @@ class Supply extends Component {
 
                 }
             })
+            .catch(err=>{
+                console.log(err);		
+                });
+                fetch(`${baseUrl}supply/out`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    console.log(data);
+                    this.setState({supplyout: data})
+                    // const rev=data.consultation
+
+                }
+            })
+            .catch(err=>{
+                console.log(err);		
+                });
+                fetch(`${baseUrl}supply/interState`, requestOptions)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        console.log(data.error);
+                    } else {
+                        console.log(data);
+                        this.setState({interState: data})
+                        // const rev=data.consultation
+    
+                    }
+                })
+                .catch(err=>{
+                    console.log(err);		
+                    });
 
     }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox'
+            ? target.checked
+            : target.value;
+        const name = target.name;
+        this.setState({[name]: value});
+    }
+    handleClose(){
+           this.setState({
+               show1:false,
+               show2:false
+           }) ;    
+    }
+    handleShow1(){
+        this.setState({
+            show1: true
+        });
+    }
+    handleShow2(){
+        this.setState({
+            show2: true
+        });
+    }
+    handleSubmit1(e){
+        console.log("In submit")
+        var a=parseInt(this.state.quantity)
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({oxygen_plant: this.state.plant, quantity:a,date:this.state.date, center:this.state.center,incharge:this.state.incharge,contact:this.state.contact})
+        };
+        fetch(`${baseUrl}supply/in`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.error) {
+                     M.toast({html: "Enter correct credentials" ,classes:'#c62828 red darken-3'})
+                    console.log('Some Error occured');
+                } else {
+                    //this.props.change();
+                    M.toast({html: "Data Saved" ,classes:'#c62828 green darken-3'})
+                    window.location.reload();
+                }
+            })
+            .catch(err => {
+                //console.log(err);
+            })
+    }
+    handleSubmit2(e){
+        console.log("In submit")
+        var a=parseInt(this.state.quantity)
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({state: this.state.state, quantity:a,date:this.state.date, center:this.state.center,incharge:this.state.incharge,contact:this.state.contact})
+        };
+        fetch(`${baseUrl}supply/out`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.error) {
+                     M.toast({html: "Enter correct credentials" ,classes:'#c62828 red darken-3'})
+                    console.log('Some Error occured');
+                } else {
+                    //this.props.change();
+                    M.toast({html: "Data Saved" ,classes:'#c62828 green darken-3'})
+                    window.location.reload();
+                }
+            })
+            .catch(err => {
+                //console.log(err);
+            })
+    }
     render() {
-        const supplyInData = this
+        console.log(this.state);
+         const supplyInData = this
             .state
             .supplyin
             .map((state) => {
@@ -45,7 +178,37 @@ class Supply extends Component {
                         <td>{state.contact}</td>
                     </tr>
                 );
-            })
+            });
+            const supplyOutData = this
+            .state
+            .supplyout
+            .map((state) => {
+                return (
+                    <tr key={state._id}>
+                        <td>{state.center}</td>
+                        <td>{state.createdAt}</td>
+                        <td>{state.quantity}</td>
+                        <td>{state.state}</td>
+                        <td>{state.incharge}</td>
+                        <td>{state.contact}</td>
+                    </tr>
+                );
+            });
+            const interStateData = this
+            .state
+            .interState
+            .map((state) => {
+                return (
+                    <tr key={state._id}>
+                        <td>{state.from}</td>
+                        <td>{state.to}</td>
+                        <td>{state.quantity}</td>
+                        <td>{state.createdAt}</td>
+                        
+                    </tr>
+                );
+            });
+            
         return (
             <div className="content">
                 <div className="container-fluid">
@@ -59,7 +222,9 @@ class Supply extends Component {
                                             style={{
                                             "position": "relative",
                                             "float": "right"
-                                        }}>Add Entry</button>
+                                        }}
+                                        onClick={this.handleShow1}
+                                        >Add Entry</button>
                                     </h4>
                                     <p className="card-category"></p>
                                 </div>
@@ -103,7 +268,7 @@ class Supply extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-md-6">
                             <div className="card">
                                 <div className="card-header card-header-primary">
                                     <h4 className="card-title ">
@@ -113,7 +278,9 @@ class Supply extends Component {
                                             style={{
                                             "position": "relative",
                                             "float": "right"
-                                        }}>Add Entry</button>
+                                            }}
+                                            onClick={this.handleShow2}
+                                        >Add Entry</button>
                                     </h4>
                                 </div>
                                 <div className="card-body">
@@ -134,10 +301,10 @@ class Supply extends Component {
 
                                                 <tr>
 
-                                                    <th >State</th>
+                                                    <th >From Center</th>
                                                     <th >Date</th>
-                                                    <th >Time</th>
-                                                    <th >Center</th>
+                                                    <th >Qauntity</th>
+                                                    <th >To State</th>
                                                     <th >Incharge</th>
                                                     <th >Contact</th>
 
@@ -145,62 +312,53 @@ class Supply extends Component {
 
                                             </thead>
                                             <tbody>
+                                                {supplyOutData}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    
+                
+                    <div className="col-md-6">
+                            <div className="card">
+                                <div className="card-header card-header-primary">
+                                    <h4 className="card-title ">
+                                        Inter State Transfer
+                                       
+                                    </h4>
+                                </div>
+                                <div className="card-body">
+                                    <div
+                                        className="table-responsive"
+                                        style={{
+                                        "height": "300px",
+                                        "overflow": "auto"
+                                    }}>
+                                        <table class="table">
+
+                                            <thead
+                                                class="thead"
+                                                style={{
+                                                "color": "blue",
+                                                "fontSize": "20px"
+                                            }}>
+
                                                 <tr>
-                                                    <td>Himachal Pradesh</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Shimla</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
+
+                                                    <th >From State</th>
+                                                    <th >To State</th>
+                                                    <th >Qauntity</th>
+                                                    <th >Date</th>
+                                                    
+
                                                 </tr>
-                                                <tr>
-                                                    <td>Punjab</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Jalandhar</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Haryana</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Ambala</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Utrakhand</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Dehradun</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Rajasthan</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Jaipur</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Uttar Pradesh</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Lucknow</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Madhya Pradesh</td>
-                                                    <td>26-05-2021</td>
-                                                    <td>09:30</td>
-                                                    <td>Indore</td>
-                                                    <td>ABCD</td>
-                                                    <td>9736178898</td>
-                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                {interStateData}
                                             </tbody>
                                         </table>
                                     </div>
@@ -208,10 +366,55 @@ class Supply extends Component {
                             </div>
                         </div>
 
-                    </div>
-                </div>
-            </div>
+                        </div>
 
+                </div>
+                <Modal show={this.state.show1} onHide={this.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Supply In </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <input type="text" className="form-control" name="plant" placeholder="Plant Name.." onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="date" placeholder="Date.." onChange={this.handleInputChange}/>
+            <input type="number" className="form-control" name="quantity" placeholder="Qauntity.." onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="center" placeholder="Center Name.." onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="incharge" placeholder="Incharge.." onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="contact" placeholder="Conatct Number.." onChange={this.handleInputChange}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={this.handleClose}>
+            Close
+          </button>
+          <button className="btn btn-primary" onClick={this.handleSubmit1}>
+            Submit
+          </button>
+        </Modal.Footer>
+      </Modal>
+
+
+      <Modal show={this.state.show2} onHide={this.handleClose2}>
+        <Modal.Header closeButton>
+          <Modal.Title>Supply In </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <input type="text" className="form-control" name="center" placeholder=" From Center" onChange={this.handleInputChange}/>
+             <input type="text" className="form-control" name="date" placeholder="Date.." onChange={this.handleInputChange}/>
+            <input type="number" className="form-control" name="quantity" placeholder="Qauntity.." onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="state" placeholder="To State" onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="incharge" placeholder="Incharge" onChange={this.handleInputChange}/>
+            <input type="text" className="form-control" name="contact" placeholder="Contact" onChange={this.handleInputChange}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={this.handleClose}>
+            Close
+          </button>
+          <button className="btn btn-primary" onClick={this.handleSubmit2}>
+            Submit
+          </button>
+        </Modal.Footer>
+      </Modal>
+            </div>
+            
         );
     }
 }

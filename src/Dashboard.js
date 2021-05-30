@@ -1,37 +1,39 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {baseUrl} from './baseUrl';
+import {Line} from 'react-chartjs-2';
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Upcoming: 0,
-            Completed: 0,
-            revenue: 0,
-            rating: 0,
-            consultation: []
+            dashboard:[]
         }
-
+        
     }
-    //   componentDidMount(){   console.log('componentDidMount');     const
-    // requestOptions = {       method: 'POST',       headers: { 'Content-Type':
-    // 'application/json',       "Authorization":"Bearer
-    // "+localStorage.getItem("jwt")} };
-    // fetch(`${baseUrl}getDashboardDetails`,requestOptions) .then(res=>res.json())
-    // .then(data=>{ if(data.error){ 	console.log(data.error); } else{
-    // console.log(data);   // const rev=data.consultation 	this.setState({
-    // Upcoming : data.upcoming,     Completed: data.completed,     rating :
-    // data.rating,     consultation:data.consultation 		}) 	} })   }
+    componentDidMount(){
+      const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'}
+    };
+    fetch(`http://localhost:5000/dashboard/getDashboardDetails`,requestOptions)
+    .then(res=>res.json())
+    .then(data=>{
+    if(data.error){			
+      
+    }	
+    else{
+      console.log(data);
+      this.setState({
+          dashboard:data[0]
+      })
+    }
+    })
+    .catch(err=>{
+    console.log(err);		
+    });
+  }
     render() {
-        let revenue = 0;
-        this
-            .state
-            .consultation
-            .map((fee) => {
-                return (revenue = revenue + (fee.fee))
-            })
-
-        console.log(revenue);
+      console.log(this.state.dashboard.allocated);      
 
         return (
             <div className="content">
@@ -43,15 +45,33 @@ class Dashboard extends Component {
                                     <div className="card-icon">
                                         <i className="material-icons">store</i>
                                     </div>
-                                    <p className="card-category">Total Supplies</p>
-                                    <h3 className="card-title">{this.state.Upcoming}
+                                    <p className="card-category">Total Available Supplies</p>
+                                    <h3 className="card-title" style={{"fontFamily":"Montserrat"}}>{this.state.dashboard.available}{' MT'}
 
                                     </h3>
                                 </div>
                                 <div className="card-footer">
                                     <div className="stats">
                                         <i className="material-icons">date_range</i>
-                                        <Link to="bookings">Check Here</Link>
+                                        <Link to="supply">Check Here</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-lg-3 col-md-6 col-sm-6">
+                            <div className="card card-stats">
+                                <div className="card-header card-header-danger card-header-icon">
+                                    <div className="card-icon">
+                                        <i className="material-icons">content_copy</i>
+                                    </div>
+                                    <p className="card-category">Urgent Requirement</p>
+                                    <h3 className="card-title" style={{"fontFamily":"Montserrat"}}>{this.state.dashboard.requirment}{' MT'}</h3>
+                                </div>
+                                <div className="card-footer">
+                                    <div className="stats">
+                                        <i className="material-icons">date_range</i>
+                                        <Link to="supply">Check Here to ask from Plant</Link>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +83,7 @@ class Dashboard extends Component {
                                         <i className="material-icons">cloud_done</i>
                                     </div>
                                     <p className="card-category">Supplied</p>
-                                    <h3 className="card-title">{revenue}{"Rs"}</h3>
+                                    <h3 className="card-title"style={{"fontFamily":"Montserrat"}}>{this.state.dashboard.allocated  }{" MT"}</h3>
                                 </div>
                                 <div className="card-footer">
                                     <div className="stats">
@@ -77,33 +97,16 @@ class Dashboard extends Component {
                             <div className="card card-stats">
                                 <div className="card-header card-header-danger card-header-icon">
                                     <div className="card-icon">
-                                        <i className="material-icons">content_copy</i>
+                                        <i className="fa fa-star"></i>
                                     </div>
-                                    <p className="card-category">Requirement</p>
-                                    <h3 className="card-title">{this.state.Completed}</h3>
+                                    <p className="card-category">Death Due to Shortage</p>
+                                    <h3 className="card-title"style={{"fontFamily":"Montserrat"}}>{this.state.dashboard.inprocess}</h3>
+
                                 </div>
                                 <div className="card-footer">
                                     <div className="stats">
                                         <i className="material-icons">date_range</i>
                                         Last 24 Hours
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6">
-                            <div className="card card-stats">
-                                <div className="card-header card-header-warning card-header-icon">
-                                    <div className="card-icon">
-                                        <i className="fa fa-star"></i>
-                                    </div>
-                                    <p className="card-category">In Process</p>
-                                    <h3 className="card-title">{this.state.rating}{"%"}</h3>
-
-                                </div>
-                                <div className="card-footer">
-                                    <div className="stats">
-                                        <i className="material-icons">update</i>
-                                        By users
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +118,15 @@ class Dashboard extends Component {
                             <div className="card card-chart">
                                 <div className="card-header card-header-success">
                                     <div className="ct-chart" id="dailySalesChart"></div>
-
+                                  <Line 
+                                  data={{
+                                    labels: ['J','F','M','A','M'] 
+                                  }}
+                               
+                                  options= {{
+                                    maintainAspectRatio:false
+                                  }}
+                                  />
                                 </div>
                                 <div className="card-body">
                                     <h4 className="card-title">Oxygen Supplied</h4>

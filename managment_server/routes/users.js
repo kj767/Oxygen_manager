@@ -17,7 +17,7 @@ router.post('/signup',(req,res)=>{
       .then((user)=>{
         if(user){
           res.statusCode=400;
-          res.send('User Already Exits');
+          res.json('User Already Exits');
         }
         else {
           Users.create(req.body)
@@ -31,7 +31,7 @@ router.post('/signup',(req,res)=>{
       }
       else{
         res.status(400);
-        res.send("Please enter proper fields");
+        res.json({error:"Please enter proper fields"});
       }
 });
 
@@ -39,7 +39,7 @@ router.post('/login',(req,res)=>{
   Users.findOne({email:req.body.email})
   .then((user)=>{
     if(!user){
-      return res.status(404).send('User Not Found');
+      return res.status(404).json({error:"Please enter proper fields"});
     }
     else if(req.body.password===user.password){
       jwt.sign(
@@ -52,7 +52,7 @@ router.post('/login',(req,res)=>{
       
     }
     else {
-      return res.status(400).send('Enter Correct Password!');
+      res.json({error:"Please enter proper fields"});
     }
   })
 });
